@@ -1,0 +1,59 @@
+# Build + check the site on every push; publish to GitHub Pages only when all checks pass.
+name: Build and deploy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # The site's address: "/tnodes-website" on <user>.github.io, "" once tnodes.org is set as custom domain.
+      - id: pages
+        uses: actions/configure-pages@v6
+
+      # Resized images, so builds don't re-encode every picture each time
+      - uses: actions/cache@v6
+        with:
+          path: .cache/img
+          key: img-${{ hashFiles('content/**', 'assets/**') }}
+          restore-keys: img-
+
+      - name: Build and run checks (fails on any problem)
+        run: python build.py --base "${{ steps.pages.outputs.base_path }}"
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
