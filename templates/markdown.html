@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% set page_title = page.title ~ " · " ~ site.name %}
+{% set page_description = page.description %}
+{% block main %}
+<article class="section doc">
+  <div class="wrap narrow">
+    {% if not page.has_h1 %}<h1 class="page-title">{{ page.title }}</h1>{% endif %}
+    {% if page.show_date %}<p class="updated">Last updated: <time datetime="{{ page.last_updated }}">{{ page.last_updated_text }}</time></p>{% endif %}
+    <div class="prose prose-doc">
+      {{ body }}
+    </div>
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved · {{ site.name }}</title>
+<meta name="description" content="This page has moved to {{ abs_url(target) }}">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ abs_url(target) }}">
+<meta http-equiv="refresh" content="0; url={{ url(target) }}">
+<style>body{background:#0a0c16;color:#f4f6ff;font:16px/1.5 system-ui,sans-serif;padding:2rem}a{color:#5cf08f}</style>
+</head>
+<body>
+<p>This page has moved: <a href="{{ url(target) }}">{{ abs_url(target) }}</a></p>
+</body>
+</html>

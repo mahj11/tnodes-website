@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set page_title = "Support · " ~ site.name %}
+{% set page_description = "Get help with " ~ site.name ~ " games: email " ~ site.contact.email ~ " or call us. " ~ site.contact.address ~ "." %}
+{% block main %}
+<section class="page-head">
+  <div class="wrap narrow">
+    <h1 class="page-title">Support</h1>
+    <p class="lead">Need help with one of our games, found a bug, or have an idea? Get in touch.</p>
+  </div>
+</section>
+<section class="section section-tight">
+  <div class="wrap narrow">
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:{{ site.contact.email }}?subject=Support">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">{{ site.contact.email }}</span>
+        <span class="contact-hint">The best way to reach us</span>
+      </a>
+      <a class="contact-card" href="tel:{{ site.contact.phone|replace(' ', '')|replace('-', '') }}">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">{{ site.contact.phone }}</span>
+        <span class="contact-hint">{{ site.contact.hours }}</span>
+      </a>
+      <div class="contact-card">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">{{ site.contact.address }}</span>
+      </div>
+    </div>
+
+    <h2 class="section-title">Help us help you faster</h2>
+    <div class="prose">
+      <p>When you write to us about a game, please include:</p>
+      <ul>
+        <li>the name of the game,</li>
+        <li>your phone or tablet model and whether it runs Android or iOS,</li>
+        <li>what happened, and a screenshot if you can.</li>
+      </ul>
+      <p>If the game shows a Player ID in its settings, add that too. It lets us find your data, for example when you ask us to delete it. How we handle your data is explained in our <a href="{{ url('/privacy-policy/') }}">Privacy Policy</a>.</p>
+      <p>Purchases are handled by Google Play and the App Store. For refunds, please contact the store you bought from.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

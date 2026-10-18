@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "_macros.html" import game_card %}
+{% set page_title = "Games · " ~ site.name %}
+{% set page_description = "All " ~ games|length ~ " " ~ site.name ~ " games for Android and iPhone: " ~ games|map(attribute='name')|join(', ') ~ "." %}
+{% block main %}
+<section class="page-head">
+  <div class="wrap">
+    <h1 class="page-title">Our games</h1>
+    <p class="lead">Free to play on Android and iPhone. Tap a game for trailers, screenshots and download links.</p>
+  </div>
+</section>
+<section class="section section-tight">
+  <div class="wrap">
+    <div class="grid">
+      {% for g in games %}
+      {{ game_card(g, loop.index <= 2) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

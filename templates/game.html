@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% from "_macros.html" import store_badges, yt_facade, game_media, game_card %}
+{% set page_title = game.name ~ " · " ~ site.name %}
+{% set page_description = game.tagline %}
+{% set page_image = share_image(game.cover_file) %}
+{% block main %}
+<section class="game-hero">
+  <div class="game-hero-media">
+    {{ game_media(game, "100vw", [800, 1280, 1920], true) }}
+  </div>
+  <div class="wrap game-hero-content">
+    {{ picture(game.icon_file, [128, 256], (1, 1), "112px", game.name ~ " icon", "game-icon", true) }}
+    <div>
+      <p class="kicker">{{ game.genre }}{% if game.release_text %} · {{ game.release_text }}{% endif %}{% if game.status == "coming_soon" %} · Coming soon{% endif %}</p>
+      <h1 class="game-title">{{ game.name }}</h1>
+      <p class="game-tagline">{{ game.tagline }}</p>
+      {{ store_badges(game) }}
+    </div>
+  </div>
+</section>
+
+{% if game.youtube_trailers %}
+<section class="section section-tight">
+  <div class="wrap narrow">
+    <h2 class="section-title">Watch the trailer{% if game.youtube_trailers|length > 1 %}s{% endif %}</h2>
+    {{ yt_facade(game.youtube_trailers, game.name ~ " trailer", false, "(min-width: 900px) 860px, 100vw") }}
+    <p class="video-note">
+      {% if game.youtube_trailers|length > 1 %}{{ game.youtube_trailers|length }} videos play one after another. {% endif %}
+      The video loads from YouTube when you press play.
+      {% if game.youtube_playlist is defined %}<a href="https://www.youtube.com/playlist?list={{ game.youtube_playlist }}" rel="noopener">More {{ game.name.split(':')[0] }} videos on YouTube <span aria-hidden="true">→</span></a>{% endif %}
+    </p>
+  </div>
+</section>
+{% endif %}
+
+{% if game.screenshot_files %}
+<section class="section section-tight" aria-labelledby="shots-title">
+  <div class="wrap">
+    <h2 class="section-title" id="shots-title">Screenshots</h2>
+  </div>
+  <ul class="shots" tabindex="0" aria-label="Screenshots, scroll sideways">
+    {% for s in game.screenshot_files %}
+    <li>
+      <a href="{{ image_url(s, 1600) }}">
+        {{ picture(s, [360, 720, 1280], none, "(min-width: 900px) 640px, 85vw", game.name ~ " screenshot " ~ loop.index) }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section class="section section-tight">
+  <div class="wrap narrow">
+    <h2 class="section-title">About the game</h2>
+    <div class="prose">{{ game.description_html }}</div>
+    <dl class="facts">
+      <div><dt>Genre</dt><dd>{{ game.genre }}</dd></div>
+      {% if game.release_text %}<div><dt>Released</dt><dd>{{ game.release_text }}</dd></div>{% endif %}
+      <div><dt>Price</dt><dd>Free · contains ads · in-app purchases</dd></div>
+      <div><dt>Available on</dt><dd>{{ game.stores_text }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+{% if game.youtube_shorts %}
+<section class="section section-tight">
+  <div class="wrap">
+    <h2 class="section-title">Shorts</h2>
+    <ul class="shorts">
+      {% for s in game.youtube_shorts %}
+      <li>{{ yt_facade([s], game.name ~ " short " ~ loop.index, true, "(min-width: 900px) 240px, 45vw") }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section-alt">
+  <div class="wrap">
+    <h2 class="section-title">More games</h2>
+    <div class="grid">
+      {% for g in more %}
+      {{ game_card(g) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

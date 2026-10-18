@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{# pages set: page_title, page_description, page_image (absolute URL), og_type #}
+{% set page_title = page_title|default(site.name) %}
+{% set page_description = page_description|default(site.description) %}
+{% set page_image = page_image|default(abs_url('/assets/og-default.jpg')) %}
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description }}">
+<link rel="canonical" href="{{ abs_url(path) }}">
+{% if preview %}
+<meta name="robots" content="noindex">
+{% endif %}
+<meta name="theme-color" content="#0a0c16">
+<meta name="color-scheme" content="dark">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:type" content="{{ og_type|default("website") }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:url" content="{{ abs_url(path) }}">
+<meta property="og:image" content="{{ page_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_description }}">
+<meta name="twitter:image" content="{{ page_image }}">
+<link rel="icon" href="{{ url('/favicon.ico') }}" sizes="48x48">
+<link rel="icon" href="{{ url('/assets/icons/icon-32.png') }}" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ url('/assets/icons/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url('/site.webmanifest') }}">
+<link rel="preload" href="{{ url('/assets/fonts/lilita-one-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('css/site.css') }}">
+<script src="{{ asset('js/site.js') }}" defer></script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="{{ url('/') }}" aria-label="{{ site.name }} home">
+      <img src="{{ url('/assets/brand/logo-wordmark.png') }}" width="644" height="218" alt="{{ site.name }}">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="{{ url('/games/') }}"{% if path.startswith('/games/') %} aria-current="page"{% endif %}>Games</a>
+      <a href="{{ url('/support/') }}"{% if path == '/support/' %} aria-current="page"{% endif %}>Support</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand brand-small" href="{{ url('/') }}" aria-label="{{ site.name }} home">
+        <img src="{{ url('/assets/brand/logo-wordmark.png') }}" width="644" height="218" alt="{{ site.name }}" loading="lazy">
+      </a>
+      <p class="muted">{{ site.tagline }} · {{ site.contact.address }}</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+        <li><a href="{{ url('/games/') }}">Games</a></li>
+        <li><a href="{{ url('/support/') }}">Support</a></li>
+        <li><a href="{{ url('/privacy-policy/') }}">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Elsewhere">
+      <ul class="footer-links">
+        <li><a href="{{ site.links.google_play }}" rel="noopener">Google Play</a></li>
+        <li><a href="{{ site.links.app_store }}" rel="noopener">App Store</a></li>
+        <li><a href="{{ site.links.youtube }}" rel="noopener">YouTube</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap legal">
+    <p>© {{ year }} {{ site.name }}. All rights reserved. Google Play is a trademark of Google LLC. App Store is a service mark of Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>

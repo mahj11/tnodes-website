@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% from "_macros.html" import game_card, store_badges %}
+{% set page_title = site.name ~ " · " ~ site.tagline %}
+{% block main %}
+<section class="hero">
+  <div class="hero-art" aria-hidden="true">
+    {% for row in [games, games|reverse|list] %}
+    {% set first_row = loop.first %}
+    <div class="marquee{% if not first_row %} marquee-rev{% endif %}">
+      <div class="marquee-track">
+        {% for pass in [1, 2] %}
+        {% for g in row %}
+        <div class="tile">{{ picture(g.poster_file or g.cover_file, [200, 400], (2, 3), "180px", "", "", first_row and pass == 1 and loop.index <= 3) }}</div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="wrap hero-content">
+    <p class="kicker">{{ site.name }} · {{ site.tagline }}</p>
+    <h1 class="hero-title">{{ site.hero_title }}</h1>
+    <p class="hero-text">{{ site.hero_text }}</p>
+    <div class="badges">
+      <a class="badge" href="{{ site.links.google_play }}" rel="noopener"><img src="{{ url('/assets/badges/google-play.png') }}" width="564" height="168" alt="Our games on Google Play"></a>
+      <a class="badge" href="{{ site.links.app_store }}" rel="noopener"><img src="{{ url('/assets/badges/app-store.svg') }}" width="120" height="40" alt="Our games on the App Store"></a>
+    </div>
+    <a class="button" href="{{ url('/games/') }}">See all {{ games|length }} games <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Featured games</h2>
+    <div class="grid grid-featured">
+      {% for g in featured %}
+      {{ game_card(g) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <h2 class="section-title">All our games</h2>
+    <ul class="icon-grid">
+      {% for g in games %}
+      <li>
+        <a href="{{ url(g.path) }}">
+          {{ picture(g.icon_file, [96, 192], (1, 1), "88px", "", "icon-tile") }}
+          <span>{{ g.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="studio">
+  <div class="wrap studio">
+    <div>
+      <h2 class="section-title">{{ site.intro_title }}</h2>
+      <div class="prose">{{ paragraphs(site.intro) }}</div>
+      <p class="studio-links">
+        <a class="button" href="{{ url('/support/') }}">Contact us</a>
+        <a class="button button-ghost" href="{{ site.links.youtube }}" rel="noopener">Watch on YouTube</a>
+      </p>
+    </div>
+    <img class="studio-logo" src="{{ url('/assets/icons/icon-512.png') }}" width="512" height="512" alt="" loading="lazy">
+  </div>
+</section>
+{% endblock %}

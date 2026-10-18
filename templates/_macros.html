@@ -1,0 +1,71 @@
+{% macro store_badges(game, cls="") %}
+<div class="badges {{ cls }}">
+{% if game.status == "coming_soon" %}
+  <a class="soon" href="{{ game.google_play_url }}" rel="noopener">
+    <span class="soon-kicker">Coming soon on</span>
+    <span class="soon-store">Google Play</span>
+    <span class="soon-cta">Pre-register now</span>
+  </a>
+{% else %}
+  {% if game.google_play_url is defined %}
+  <a class="badge" href="{{ game.google_play_url }}" rel="noopener">
+    <img src="{{ url('/assets/badges/google-play.png') }}" width="564" height="168" alt="Get {{ game.name }} on Google Play">
+  </a>
+  {% endif %}
+  {% if game.app_store_url is defined %}
+  <a class="badge" href="{{ game.app_store_url }}" rel="noopener">
+    <img src="{{ url('/assets/badges/app-store.svg') }}" width="120" height="40" alt="Download {{ game.name }} on the App Store">
+  </a>
+  {% endif %}
+{% endif %}
+</div>
+{% endmacro %}
+
+{# YouTube "click to play": a thumbnail link that works without JavaScript (opens YouTube);
+   with JavaScript the privacy-enhanced player loads in place only after the tap. #}
+{% macro yt_facade(ids, label, short=False, sizes="100vw", eager=False) %}
+{% set first = ids[0] %}
+<a class="yt{% if short %} yt-short{% endif %}" href="https://www.youtube.com/{% if short %}shorts/{{ first }}{% else %}watch?v={{ first }}{% endif %}"
+   data-yt="{{ ids|join(',') }}"{% if short %} data-short{% endif %} rel="noopener"
+   aria-label="Play video: {{ label }}">
+  {% if short %}
+  {{ picture(yt(first, true), [270, 540], (9, 16), sizes, "", "yt-thumb", eager) }}
+  {% else %}
+  {{ picture(yt(first), [480, 960, 1280], (16, 9), sizes, "", "yt-thumb", eager) }}
+  {% endif %}
+  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path class="yt-bg" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+</a>
+{% endmacro %}
+
+{# Gameplay loop (muted, autoplays only when visible; still image with Reduce motion or no JS) or the cover art #}
+{% macro game_media(game, sizes, widths=[480, 800, 1280], eager=False, cls="") %}
+{% if game.loop %}
+<video class="loop {{ cls }}" muted loop playsinline preload="none" data-loop
+       poster="{{ url('/media/' ~ game.id ~ '/loop.jpg') }}" aria-label="{{ game.name }} gameplay">
+  <source src="{{ url('/media/' ~ game.id ~ '/loop.webm') }}" type="video/webm">
+  <source src="{{ url('/media/' ~ game.id ~ '/loop.mp4') }}" type="video/mp4">
+</video>
+{% else %}
+{{ picture(game.cover_file, widths, (16, 9), sizes, game.name ~ " artwork", cls, eager) }}
+{% endif %}
+{% endmacro %}
+
+{% macro game_card(game, eager=False) %}
+<article class="card{% if game.status == 'coming_soon' %} is-soon{% endif %}">
+  <a class="card-link" href="{{ url(game.path) }}">
+    <div class="card-media">
+      {{ game_media(game, "(min-width: 1100px) 340px, (min-width: 700px) 45vw, 92vw", [480, 800], eager) }}
+      {% if game.status == "coming_soon" %}<span class="pill pill-soon">Coming soon</span>{% endif %}
+    </div>
+    <div class="card-body">
+      {{ picture(game.icon_file, [96, 192], (1, 1), "64px", "", "card-icon") }}
+      <div>
+        <h3 class="card-title">{{ game.name }}</h3>
+        <p class="card-meta">{{ game.genre }}</p>
+      </div>
+    </div>
+    <p class="card-text">{{ game.tagline }}</p>
+  </a>
+  {{ store_badges(game, "badges-small") }}
+</article>
+{% endmacro %}

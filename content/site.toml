@@ -1,0 +1,27 @@
+# Studio-wide settings and text. Edit by hand, then run: python build.py
+
+name = "TNODES"
+url = "https://tnodes.org"          # canonical address (used in sitemap, canonical links, Open Graph)
+tagline = "Mobile game studio"
+description = "TNODES is a mobile game studio in Daejeon, South Korea, making free games for Android and iPhone: open-world action, driving and police simulators, football, endless runners, pet care and puzzles."
+
+# Home page
+hero_title = "Big worlds. Quick fun. Free to play."
+hero_text = "Open-world action, driving and police simulators, football, endless runners, pet care and puzzles, for Android and iPhone."
+intro_title = "About the studio"
+intro = """
+TNODES is a mobile game studio based in Daejeon, South Korea. We make free-to-play games for Android and iPhone, from big open-world cities to quick puzzles you can finish on the bus.
+
+We keep updating our games after launch. Questions, ideas or a bug to report? Write to us any time.
+"""
+
+[contact]
+email = "customerservice@tnodes.org"
+phone = "+82 10-6649-0517"
+hours = "Monday to Friday, 10am to 7pm"
+address = "Daejeon, South Korea"
+
+[links]
+youtube = "https://www.youtube.com/@tnodesstudio"
+google_play = "https://play.google.com/store/apps/developer?id=Tnodes"
+app_store = "https://apps.apple.com/us/developer/tnodes/id1692309221"

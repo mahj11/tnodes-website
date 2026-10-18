@@ -1,0 +1,162 @@
+# One [[games]] entry per game, in the order they appear on the site.
+#
+# Images live in content/games/<id>/ and are found automatically:
+#   icon.png|jpg          square app icon (512x512)
+#   cover.jpg             landscape art, 16:9 (cards, game page header, sharing image)
+#   poster.jpg            optional portrait art, 2:3 (home page hero)
+#   screenshots/*.jpg     shown in file-name order
+#   loop.mp4 + loop.webm + loop.jpg   optional gameplay loop, made by: python build.py --loops
+#
+# Fields:
+#   id                 folder name and page address: /games/<id>/
+#   name, tagline      as on the store
+#   description        paragraphs separated by a blank line
+#   release_date       YYYY-MM-DD (leave out if not released yet)
+#   genre
+#   status             "live" (store buttons), "coming_soon" (pre-registration badge), "hidden" (not shown)
+#   featured           true = shown big on the home page
+#   google_play_url, app_store_url (leave out if not on that store)
+#   youtube_trailers   video IDs, played one after another
+#   youtube_playlist   playlist ID for the "More videos" link
+#   youtube_shorts     Short IDs shown as tap-to-play videos (best first)
+#   loop_start         optional: seconds into the original video where the gameplay loop starts
+#   loop_seconds       optional: loop length, 5 to 12 (default 8)
+
+[[games]]
+id = "gravity-switch"
+name = "Gravity Switch: Block Puzzle"
+tagline = "Swipe to switch gravity, slide crates and set off huge chain matches!"
+description = """
+Swipe once and the whole board moves. Gravity Switch is a fresh block puzzle where you control gravity itself: swipe up, down, left or right and every crate slides to that side. Line up 3 or more of the same color to clear them, then watch the crates above tumble in and set off chain after chain.
+
+Every swipe matters. After each move a new crate slides in from the far edge, so plan ahead, keep the board from filling up, and finish your goals before you run out of moves. 100 levels across 4 worlds, with TNT, glue, one-way gates and hidden secrets to find.
+"""
+genre = "Puzzle"
+status = "coming_soon"
+featured = true
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.gravity.switch.cube.puzzle"
+
+[[games]]
+id = "vegas-gangster"
+name = "Vegas Gangster: Revenge Story"
+tagline = "Open-world crime action as an ex-gangster fights gangs to protect his family."
+description = """
+Vegas Gangster: Revenge Story is an intense open-world action game where crime, danger and chaos collide on the streets of Vegas. Step into the role of an ex-gangster trying to escape his criminal past, protect his family and survive in a city controlled by violent gangs and ruthless crime bosses.
+
+When your old crew threatens your home, your peaceful future is shattered. Walk, drive or fight your way through a huge city inspired by the neon glow of Vegas, with gang wars, car chases, shootouts and a revenge story about loyalty, betrayal and survival.
+"""
+release_date = 2026-01-08
+genre = "Action"
+status = "live"
+featured = true
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.vegas.gangster.revenge.story"
+app_store_url = "https://apps.apple.com/us/app/gangster-vegas-revenge-story/id6757784280"
+youtube_trailers = ["pYuIJnIuF34", "WMhsnMWX6qc"]
+youtube_playlist = "PLAmKFc5ikLdbrwDivmBv14GK7YjP50cVA"
+youtube_shorts = ["VJMWwgSYiWI", "KBHbxhTZuk4", "VoFLzD2vKOM", "hPtf66pWXo8"]
+
+[[games]]
+id = "subway-animal-runner"
+name = "Subway Animal Runner: Zoo Run"
+tagline = "Dash, jump and dodge as a cute pet on an endless wild adventure."
+description = """
+The cutest and most exciting endless runner adventure! Join a team of adorable animal heroes as they sprint through colorful worlds, leap over tricky obstacles and dash their way to new high scores.
+
+Swipe to avoid obstacles, jump gaps, slide under traps and dash past barriers. Collect coins during each run, unlock new furry friends (pandas, foxes, bunnies, puppies and more) and upgrade them to escape faster and farther.
+"""
+release_date = 2026-01-06
+genre = "Casual"
+status = "live"
+featured = true
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.runner.cute.animal"
+app_store_url = "https://apps.apple.com/us/app/subway-animal-runner-zoo-run/id6757705817"
+youtube_trailers = ["z7xaYJ45-aM"]
+youtube_playlist = "PLAmKFc5ikLdYg0-S4gCOx50akRfgs6CVN"
+youtube_shorts = ["UgfPj261mBg", "oRqfOPJcam0", "BG5kYYVyG1U", "r0526BC-X3I"]
+
+[[games]]
+id = "cop-duty"
+name = "Cop Duty: Police Simulator"
+tagline = "Drive, fly and enforce the law in a full open-world police simulator."
+description = """
+Experience nonstop action as a patrol officer in an open-world police simulator. Start your shift in a powerful cop car, take on police duty assignments, chase criminals and complete dangerous missions across a massive, living city.
+
+Control a huge fleet: police cars, bikes, armored tanks, helicopters, planes and even jet packs. Traffic stops, tactical raids, escorts and high-speed pursuits unlock new missions and better gear as you rise through the ranks.
+"""
+release_date = 2025-11-06
+genre = "Simulation"
+status = "live"
+featured = true
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.ninja.superhero"
+app_store_url = "https://apps.apple.com/us/app/police-simulator-cop-games/id6755235471"
+youtube_trailers = ["apholDYYrrI"]
+youtube_playlist = "PLAmKFc5ikLdZ_Quw9XE2zkRLPRyM-eOXJ"
+youtube_shorts = ["1FZB4G6QOsE", "TwBSTBHY-tU", "btrqN1sl8xo", "zJfDnY5VjdQ"]
+
+[[games]]
+id = "dream-league-soccer-star"
+name = "Dream League Soccer Star"
+tagline = "Join world soccer champs, master free kicks and penalties, and be a soccer superstar."
+description = """
+Step onto the pitch and experience the thrill of real football. Build your dream team, rise through every league and become a true soccer superstar.
+
+Play Tournament mode against the world's champions, quick Friendly matches, or practise your Free Kicks and penalty shoot-outs. Smooth controls for passing, through balls, sprints, skills and shots bring the beautiful game to your phone.
+"""
+release_date = 2025-10-19
+genre = "Sports"
+status = "live"
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.football.soccor.world.cup"
+app_store_url = "https://apps.apple.com/us/app/soccer-star-football-game/id6751538427"
+youtube_trailers = ["zxpj959au3s"]
+youtube_playlist = "PLAmKFc5ikLdZBJ6pJl9QD2UASkUm6zjd4"
+youtube_shorts = ["xDjWN5-hDrA", "4JRbOg7DE6U", "LwG1Aly-f7s", "43qfqblbmUc"]
+
+[[games]]
+id = "driver-simulator"
+name = "Driver Simulator Open World"
+tagline = "Drive cars, trucks, taxis, bikes and helicopters in open-world city jobs."
+description = """
+Take on many jobs in an open-world city, where every task earns you money and every hustle builds your career. Drive a taxi, deliver pizza, run a bus route, work at the port and become a true city worker in this all-in-one job simulator.
+
+Pick up taxi passengers and beat the clock, deliver food door to door, load containers with a forklift, haul cargo by truck, or patrol the streets as a police officer. Earn cash, upgrade your look and explore the whole city.
+"""
+release_date = 2025-07-18
+genre = "Simulation"
+status = "live"
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.odd.job.simulator.open.world"
+app_store_url = "https://apps.apple.com/us/app/driver-simulator-open-world/id6748719608"
+youtube_trailers = ["tSxgz9KQDTQ"]
+youtube_playlist = "PLAmKFc5ikLdafc7xh2NENLfaHACUt9dfx"
+youtube_shorts = ["NlAEojuFHf4", "qL61dQ0-F6k", "x8xO5V1Zf0w", "8ipY5THM5l4"]
+
+[[games]]
+id = "route-hero"
+name = "Route Hero: Bus Simulator"
+tagline = "Drive buses, pick up passengers and explore the city in this 3D driving sim!"
+description = """
+Become a professional bus driver: choose your city bus, school bus or coach, complete your daily routes and pick up passengers at every stop.
+
+Each bus handles differently. Try long-distance routes to faraway destinations, off-road bus challenges, or switch to taxi-style missions in smaller vehicles.
+"""
+release_date = 2025-07-13
+genre = "Simulation"
+status = "live"
+google_play_url = "https://play.google.com/store/apps/details?id=com.tnodes.city.bus.simulator.open.world"
+
+[[games]]
+id = "pet-doctor"
+name = "Pet Doctor Hospital Games"
+tagline = "Become the tycoon of the pet world while caring for cute animals."
+description = """
+Treat fluffy dogs, cats and other pets, and earn cash to expand your animal hospital and pet garden.
+
+Take the animals to the pet shelter, bring them to the garden for some care, or visit the pet care shop. A relaxing vet and pet hospital game for everyone who loves animals.
+"""
+release_date = 2024-05-29
+genre = "Casual"
+status = "live"
+google_play_url = "https://play.google.com/store/apps/details?id=com.tgames.pet.doctor.hospital.tycoon.veterinary"
+app_store_url = "https://apps.apple.com/us/app/pet-doctor-hospital-games/id6503211634"
+youtube_trailers = ["LV5lqweCqi0"]
+youtube_playlist = "PLAmKFc5ikLdZBgNK9hzWGAB2jxnn-ZgAS"
+youtube_shorts = ["wgDqk26T24s", "XUIjOKudpfw", "FCWwZ0FHpkQ"]

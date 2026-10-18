@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% set page_title = "Page not found · " ~ site.name %}
+{% set page_description = "This page doesn't exist (any more). Find our games or get in touch." %}
+{% block main %}
+<section class="section notfound">
+  <div class="wrap narrow">
+    <p class="kicker">Error 404</p>
+    <h1 class="page-title">This page went off the map</h1>
+    <p class="lead">The page you're looking for doesn't exist, or it moved when we rebuilt our website.</p>
+    <p class="studio-links">
+      <a class="button" href="{{ url('/') }}">Go to the home page</a>
+      <a class="button button-ghost" href="{{ url('/games/') }}">See our games</a>
+    </p>
+    <ul class="icon-grid icon-grid-small">
+      {% for g in games %}
+      <li><a href="{{ url(g.path) }}">{{ picture(g.icon_file, [96, 192], (1, 1), "64px", "", "icon-tile") }}<span>{{ g.name }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}
