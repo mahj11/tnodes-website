@@ -1,0 +1,8 @@
+# Never published: archive, prompts, video sources, docs, local tools
+private/
+
+# Build output
+dist/
+__pycache__/
+*.pyc
+.venv/

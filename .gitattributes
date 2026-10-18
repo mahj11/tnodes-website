@@ -1,0 +1,4 @@
+# Ad files must stay byte-for-byte identical (app-ads.txt uses CRLF): never convert line endings
+static/app-ads.txt binary
+static/ads.txt binary
+*.sha256 text eol=lf
