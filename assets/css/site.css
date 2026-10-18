@@ -120,7 +120,6 @@ p { margin: 0 0 1em; }
 .soon:hover { color: #241500; }
 .soon-kicker { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 .soon-store { font-family: var(--display); font-size: 1.25rem; }
-.soon-cta { font-size: 0.8rem; font-weight: 700; text-decoration: underline; }
 .badges-small .soon { padding: 6px 12px; }
 .badges-small .soon-store { font-size: 1.05rem; }
 .pill { position: absolute; top: 12px; left: 12px; font-weight: 700; font-size: 0.78rem; padding: 4px 10px; border-radius: 999px; }

@@ -76,10 +76,10 @@ Analytics services process data on our behalf. Ad networks may also use data for
 ## Advertising and your choices
 
 - **Consent form:** in the EEA, UK, Switzerland and some US states, the game asks for your choices before ads or analytics start. If you decline, you still see ads, but they are not personalised.
-- **Change your mind:** open the game's Settings → Privacy options at any time (shown where the law requires it).
+- **Change your mind:** open the privacy options in the game's Settings at any time (shown where the law requires it).
 - **Advertising ID on Android:** you can reset or delete it in Android Settings → Privacy → Ads.
 - **Tracking on iPhone and iPad:** the game asks for your permission before using Apple's advertising identifier. If you don't allow it, the identifier is not used. You can change your choice at any time in Settings → Privacy & Security → Tracking.
-- **Fewer ads:** the Remove Ads purchase turns off ads between levels. Rewarded ads stay optional.
+- **Fewer ads:** in games that offer it, the Remove Ads purchase turns off ads between levels. Rewarded ads stay optional.
 - **Notifications:** switch them off in the game's Settings or in your phone's settings.
 
 We do not sell your personal data for money. Under some US state laws (such as California's), sharing data with ad partners for targeted ads can count as a "sale" or "sharing". You can opt out through the US privacy option in the game's Settings.
@@ -101,7 +101,7 @@ Data is sent over encrypted connections, and we limit access to it. No system is
 Our website tnodes.org has no accounts, ads, analytics or tracking cookies, and we do not collect personal data through it.
 
 - **Hosting:** the site is hosted on GitHub Pages. Like any web host, GitHub records technical information such as your IP address when you visit, to run and secure the service, as described in the GitHub Privacy Statement: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
-- **Videos:** game videos are shown as a picture until you tap play. Only then does the video load from YouTube (in its privacy-enhanced mode), and Google's privacy policy applies.
+- **Videos:** game trailers are shown as a picture until you tap play. Only then does the video load from YouTube (in its privacy-enhanced mode), and Google's privacy policy applies. Short gameplay clips that play by themselves are stored on our own site and don't involve YouTube.
 - **Store links:** links to Google Play, the App Store and YouTube take you to those sites, where their own policies apply.
 - **Email:** if you email us from the website, we handle your message as described above.
 
@@ -121,7 +121,7 @@ Depending on where you live (for example the EEA, UK, Switzerland, US states suc
 - opt out of targeted advertising or the "sale" or "sharing" of your data;
 - complain to your local data protection authority.
 
-**How to ask:** email customerservice@tnodes.org from the game (Settings → Contact us), or include the Player ID shown in Settings → About. Because we have no accounts, the Player ID is how we find your data. We will reply within 30 days and will not treat you differently for using your rights.
+**How to ask:** email customerservice@tnodes.org. In games that have it, use Settings → Contact us, which adds your Player ID; otherwise tell us the game's name and your device type. Because we have no accounts, this is how we find your data. We will reply within 30 days and will not treat you differently for using your rights.
 
 Uninstalling the app stops all further collection. To delete your cloud save, use your Google Play Games settings or ask us.
 

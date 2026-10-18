@@ -268,6 +268,7 @@ def check_policy_text(errors):
     out = (DIST / "privacy-policy" / "index.html").read_text(encoding="utf-8")
     out = re.search(r'<div class="prose prose-doc">(.*?)</div>\s*</div>\s*</article>', out, re.S).group(1)
     out = re.sub(r'<a class="anchor"[^>]*>.*?</a>', " ", out)
+    out = re.sub(r"</?(?:a|strong|em|code|time)\b[^>]*>", "", out)  # inline tags: no word break
     out = re.sub(r"<[^>]+>", " ", out)
     a, b = words(src), words(html.unescape(out))
     if a != b:
