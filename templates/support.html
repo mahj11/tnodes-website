@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% set page_title = "Support · " ~ site.name %}
-{% set page_description = "Get help with " ~ site.name ~ " games: email " ~ site.contact.email ~ " or call us. " ~ site.contact.address ~ "." %}
+{% set page_description = "Get help with " ~ site.name ~ " games: email " ~ site.contact.email ~ ". " ~ site.contact.address ~ "." %}
 {% block main %}
 <section class="page-head">
   <div class="wrap narrow">
@@ -14,12 +14,7 @@
       <a class="contact-card" href="mailto:{{ site.contact.email }}?subject=Support">
         <span class="contact-label">Email</span>
         <span class="contact-value">{{ site.contact.email }}</span>
-        <span class="contact-hint">The best way to reach us</span>
-      </a>
-      <a class="contact-card" href="tel:{{ site.contact.phone|replace(' ', '')|replace('-', '') }}">
-        <span class="contact-label">Phone</span>
-        <span class="contact-value">{{ site.contact.phone }}</span>
-        <span class="contact-hint">{{ site.contact.hours }}</span>
+        <span class="contact-hint">Write to us any time</span>
       </a>
       <div class="contact-card">
         <span class="contact-label">Location</span>

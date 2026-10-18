@@ -246,7 +246,7 @@ p { margin: 0 0 1em; }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li { margin-bottom: 0.35em; }
 .contact-cards { display: grid; gap: 12px; margin-bottom: 40px; }
-@media (min-width: 700px) { .contact-cards { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 700px) { .contact-cards { grid-template-columns: repeat(2, 1fr); } }
 .contact-card {
   display: grid; gap: 4px; padding: 18px; text-decoration: none; color: var(--text);
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
